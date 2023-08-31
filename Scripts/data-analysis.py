@@ -4,7 +4,8 @@ import pandas as pd
 data = pd.read_csv('./data/cleaned_world-happiness-report.csv')
 
 # Correlation Analysis
-correlation_matrix = data.corr()
+numeric_data = data.select_dtypes(include=['float64', 'int64'])
+correlation_matrix = numeric_data.corr()
 print(correlation_matrix)
 
 # Other statistical analyses...
